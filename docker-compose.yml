@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+
+  web:
+    build: 
+      context: ./moon-walker-backend/.
+      dockerfile: ./moon-walker-backend/.
+    env_file: ./moon-walker-backend/.env
+    networks:
+      - default
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    #environment:
+      #DB_HOST: postgres://postgres:postgres@localhost:5432/astronauts
+
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    env_file: ./moon-walker-backend/.env
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: postgres # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: astronauts # The PostgreSQL default database (automatically created at first launch)
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
