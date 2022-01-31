@@ -11,7 +11,9 @@ export const AstronautsList = () => {
 
     useEffect(() => {
         manager.getAllAstronauts()
-            .then((astronauts) => setAstronauts(astronauts))
+            .then((astronauts) =>{
+                setAstronauts(astronauts)
+            })
             .catch((err) => console.log(err))
     }, [])
     return (
