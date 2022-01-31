@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import {Divider, Spacer, Text} from "@geist-ui/core";
 
-export const Header = (props) => {
+export const Header = () => {
     return (
         <div>
             <Spacer h={2} />

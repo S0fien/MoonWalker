@@ -1,6 +1,5 @@
 import {Text, Card, Spacer, Button, Image, Tag} from "@geist-ui/core";
 import {Link} from "react-router-dom";
-import Info from "@geist-ui/icons/info";
 import astronautImage from '../../astronaut.png'
 
 export const Astronaut = (props) => {
@@ -15,7 +14,6 @@ export const Astronaut = (props) => {
     }
     return (
         <div key={astronaut.id}>
-            {/*<Card shadow width={'100%'} style={{ maxHeight: 450 }} height={'450px'}>*/}
             <Card shadow width={'100%'} height={'450px'}>
                 <Card.Content>
                     <Image src={astronautImage} width={'100%'} height={'125px'} draggable={false} />
@@ -24,9 +22,7 @@ export const Astronaut = (props) => {
                     {astronaut.skills.map(skill =>
                             <Tag type='success' style={{ display: 'block' }}>{skill}</Tag>
                     )}
-                    {/*<BeerTitle title={astronaut.name} />*/}
                     <Spacer h={1.5} />
-                    {/*<Volume astronaut={astronaut} />*/}
                 </Card.Content>
                 {astronaut.isStatic ? (
                     <Text small>
